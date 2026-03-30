@@ -13,6 +13,11 @@ import json
 from pathlib import Path
 import logging
 
+from pydantic import BaseModel
+from guide.agent import GuideAgent
+from guide.providers.ollama_adapter import OllamaAdapter
+
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -138,6 +143,29 @@ async def ping():
     return JSONResponse({"success": True, "pong": True})
 
 
+class GuideChatRequest(BaseModel):
+    message: str
+    current_tab: str | None = None
+
+@app.post("/api/guide/chat")
+async def guide_chat(req: GuideChatRequest):
+    """Chat endpoint with GuideAgent using Mistral
+    
+    Requires: ollama pull mistral
+    """
+    logger.info("📨 Incoming chat request")
+    try:
+        logger.info(f"💬 Message: {req.message}")
+        async with GuideAgent(OllamaAdapter(model="mistral")) as agent:
+            logger.info("🤖 Invoking GuideAgent with Mistral...")
+            response = await agent.ask(req.message, req.current_tab)
+            logger.info(f"✅ Agent response received")
+            return response
+    except Exception as e:
+        logger.error(f"❌ Error in guide_chat: {type(e).__name__}: {str(e)}", exc_info=True)
+        raise HTTPException(status_code=500, detail=f"Agent error: {str(e)}")
+
+
 @app.get("/api/{path:path}")
 async def api_get_handler(path: str):
     """Handle GET requests to API endpoints"""
@@ -184,6 +212,7 @@ async def api_get_handler(path: str):
 @app.post("/api/{path:path}")
 async def api_post_handler(path: str, request: Request):
     """Handle POST requests to API endpoints"""
+    logger.warning(f"⚠️  CATCH-ALL POST HANDLER HIT: {path}")
     # Return mock responses for POST requests
     return JSONResponse({"success": True, "message": "Mock response"})
 

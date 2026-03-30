@@ -1,0 +1,219 @@
+{
+  "tabs": [
+    {
+      "id": "dashboard",
+      "title": "Dashboard",
+      "description": "Main school overview page with KPIs and shortcuts.",
+      "route": "/dashboard",
+      "image": "dashboard.png",
+      "sections": [
+        {
+          "id": "stats-cards",
+          "title": "Statistics cards",
+          "selector": ".stats-cards",
+          "description": "Quick summary of the most important indicators."
+        }
+      ]
+    },
+    {
+      "id": "teachers",
+      "title": "Teachers",
+      "description": "Teacher management area inside the dashboard.",
+      "route": "/dashboard/teachers",
+      "image": "dashboard_teachers.png",
+      "sections": []
+    },
+    {
+      "id": "classrooms",
+      "title": "Classrooms",
+      "description": "Classroom management and overview.",
+      "route": "/dashboard/classrooms",
+      "image": "dashboard_classrooms.png",
+      "sections": []
+    },
+    {
+      "id": "resources",
+      "title": "Resources",
+      "description": "Resources and school assets management.",
+      "route": "/dashboard/resources",
+      "image": "dashboard_resources.png",
+      "sections": []
+    },
+    {
+      "id": "subjects",
+      "title": "Subjects",
+      "description": "Subjects and teaching units management.",
+      "route": "/dashboard/subjects",
+      "image": "dashboard_subjects.png",
+      "sections": []
+    },
+    {
+      "id": "classes",
+      "title": "Classes",
+      "description": "Classes overview and administration.",
+      "route": "/dashboard/classes",
+      "image": "dashboard_classes.png",
+      "sections": []
+    },
+    {
+      "id": "students",
+      "title": "Students",
+      "description": "Student listing and management area.",
+      "route": "/dashboard/students",
+      "image": "dashboard_students.png",
+      "sections": []
+    },
+    {
+      "id": "schedules",
+      "title": "Schedules",
+      "description": "Timetable and planning area.",
+      "route": "/schedules",
+      "image": "schedules.png",
+      "sections": []
+    },
+    {
+      "id": "schedules-view",
+      "title": "Schedules View",
+      "description": "Detailed visualization of schedules.",
+      "route": "/schedules/view",
+      "image": "schedules_view.png",
+      "sections": []
+    },
+    {
+      "id": "schedules-reorganization",
+      "title": "Schedules Reorganization",
+      "description": "Area used to reorganize schedules and planning.",
+      "route": "/schedules/reorganization",
+      "image": "schedules_reorganization.png",
+      "sections": []
+    },
+    {
+      "id": "schedule",
+      "title": "Schedule",
+      "description": "Schedule management workspace.",
+      "route": "/schedule",
+      "image": "schedule.png",
+      "sections": []
+    },
+    {
+      "id": "schedule-view",
+      "title": "Schedule View",
+      "description": "Detailed single schedule visualization.",
+      "route": "/schedule/view",
+      "image": "schedule_view.png",
+      "sections": []
+    },
+    {
+      "id": "schedule-reorganization",
+      "title": "Schedule Reorganization",
+      "description": "Single schedule reorganization interface.",
+      "route": "/schedule/reorganization",
+      "image": "schedule_reorganization.png",
+      "sections": []
+    },
+    {
+      "id": "absences",
+      "title": "Absences",
+      "description": "General absence tracking area.",
+      "route": "/absences",
+      "image": "absences.png",
+      "sections": []
+    },
+    {
+      "id": "student-absences",
+      "title": "Student Absences",
+      "description": "Track and manage student absences.",
+      "route": "/absences/students",
+      "image": "absences_students.png",
+      "sections": []
+    },
+    {
+      "id": "teacher-absences",
+      "title": "Teacher Absences",
+      "description": "Track and manage teacher absences.",
+      "route": "/absences/teachers",
+      "image": "absences_teachers.png",
+      "sections": []
+    },
+    {
+      "id": "staff-absences",
+      "title": "Staff Absences",
+      "description": "Track and manage staff absences.",
+      "route": "/absences/staff",
+      "image": "absences_staff.png",
+      "sections": []
+    },
+    {
+      "id": "class-absences",
+      "title": "Class Absences",
+      "description": "Track and manage absences by class.",
+      "route": "/absences/classes",
+      "image": "absences_classes.png",
+      "sections": []
+    },
+    {
+      "id": "admin",
+      "title": "Admin",
+      "description": "Administration and platform configuration area.",
+      "route": "/admin",
+      "image": "admin.png",
+      "sections": []
+    },
+    {
+      "id": "admin-users",
+      "title": "Admin Users",
+      "description": "User administration interface.",
+      "route": "/admin/users",
+      "image": "admin_users.png",
+      "sections": []
+    },
+    {
+      "id": "admin-teachers",
+      "title": "Admin Teachers",
+      "description": "Teacher administration and account management.",
+      "route": "/admin/users/teachers",
+      "image": "admin_users_teachers.png",
+      "sections": []
+    },
+    {
+      "id": "schoolyears",
+      "title": "School Years",
+      "description": "School year configuration and management.",
+      "route": "/admin/schoolyears",
+      "image": "admin_schoolyears.png",
+      "sections": []
+    },
+    {
+      "id": "timetables",
+      "title": "Timetables",
+      "description": "Timetable creation and management area.",
+      "route": "/timetables",
+      "image": "timetables.png",
+      "sections": []
+    },
+    {
+      "id": "default-timetables",
+      "title": "Default Timetables",
+      "description": "Default timetable templates and settings.",
+      "route": "/timetables/default",
+      "image": "timetables_default.png",
+      "sections": []
+    },
+    {
+      "id": "general-default-timetables",
+      "title": "General Default Timetables",
+      "description": "General default timetable configuration.",
+      "route": "/timetables/default/general",
+      "image": "timetables_default_general.png",
+      "sections": []
+    },
+    {
+      "id": "preview-default-timetables",
+      "title": "Preview Default Timetables",
+      "description": "Preview area for default timetable generation.",
+      "route": "/timetables/default/preview",
+      "image": "timetables_default_preview.png",
+      "sections": []
+    }
+  ]
+}

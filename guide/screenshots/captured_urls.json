@@ -1,0 +1,145 @@
+{
+  "total": 28,
+  "pages": [
+    {
+      "name": "_",
+      "route": "//",
+      "url": "https://sandboxai.omniscol.com//"
+    },
+    {
+      "name": "login",
+      "route": "/login",
+      "url": "https://sandboxai.omniscol.com/login"
+    },
+    {
+      "name": "dashboard",
+      "route": "/dashboard",
+      "url": "https://sandboxai.omniscol.com/dashboard"
+    },
+    {
+      "name": "dashboard_teachers",
+      "route": "/dashboard/teachers",
+      "url": "https://sandboxai.omniscol.com/dashboard/teachers"
+    },
+    {
+      "name": "dashboard_classrooms",
+      "route": "/dashboard/classrooms",
+      "url": "https://sandboxai.omniscol.com/dashboard/classrooms"
+    },
+    {
+      "name": "dashboard_resources",
+      "route": "/dashboard/resources",
+      "url": "https://sandboxai.omniscol.com/dashboard/resources"
+    },
+    {
+      "name": "dashboard_subjects",
+      "route": "/dashboard/subjects",
+      "url": "https://sandboxai.omniscol.com/dashboard/subjects"
+    },
+    {
+      "name": "dashboard_classes",
+      "route": "/dashboard/classes",
+      "url": "https://sandboxai.omniscol.com/dashboard/classes"
+    },
+    {
+      "name": "dashboard_students",
+      "route": "/dashboard/students",
+      "url": "https://sandboxai.omniscol.com/dashboard/students"
+    },
+    {
+      "name": "schedules",
+      "route": "/schedules",
+      "url": "https://sandboxai.omniscol.com/schedules"
+    },
+    {
+      "name": "schedules_view",
+      "route": "/schedules/view",
+      "url": "https://sandboxai.omniscol.com/schedules/view"
+    },
+    {
+      "name": "schedules_reorganization",
+      "route": "/schedules/reorganization",
+      "url": "https://sandboxai.omniscol.com/schedules/reorganization"
+    },
+    {
+      "name": "schedule",
+      "route": "/schedule",
+      "url": "https://sandboxai.omniscol.com/schedule"
+    },
+    {
+      "name": "schedule_view",
+      "route": "/schedule/view",
+      "url": "https://sandboxai.omniscol.com/schedule/view"
+    },
+    {
+      "name": "schedule_reorganization",
+      "route": "/schedule/reorganization",
+      "url": "https://sandboxai.omniscol.com/schedule/reorganization"
+    },
+    {
+      "name": "absences",
+      "route": "/absences",
+      "url": "https://sandboxai.omniscol.com/absences"
+    },
+    {
+      "name": "absences_students",
+      "route": "/absences/students",
+      "url": "https://sandboxai.omniscol.com/absences/students"
+    },
+    {
+      "name": "absences_teachers",
+      "route": "/absences/teachers",
+      "url": "https://sandboxai.omniscol.com/absences/teachers"
+    },
+    {
+      "name": "absences_staff",
+      "route": "/absences/staff",
+      "url": "https://sandboxai.omniscol.com/absences/staff"
+    },
+    {
+      "name": "absences_classes",
+      "route": "/absences/classes",
+      "url": "https://sandboxai.omniscol.com/absences/classes"
+    },
+    {
+      "name": "admin",
+      "route": "/admin",
+      "url": "https://sandboxai.omniscol.com/admin"
+    },
+    {
+      "name": "admin_users",
+      "route": "/admin/users",
+      "url": "https://sandboxai.omniscol.com/admin/users"
+    },
+    {
+      "name": "admin_users_teachers",
+      "route": "/admin/users/teachers",
+      "url": "https://sandboxai.omniscol.com/admin/users/teachers"
+    },
+    {
+      "name": "admin_schoolyears",
+      "route": "/admin/schoolyears",
+      "url": "https://sandboxai.omniscol.com/admin/schoolyears"
+    },
+    {
+      "name": "timetables",
+      "route": "/timetables",
+      "url": "https://sandboxai.omniscol.com/timetables"
+    },
+    {
+      "name": "timetables_default",
+      "route": "/timetables/default",
+      "url": "https://sandboxai.omniscol.com/timetables/default"
+    },
+    {
+      "name": "timetables_default_general",
+      "route": "/timetables/default/general",
+      "url": "https://sandboxai.omniscol.com/timetables/default/general"
+    },
+    {
+      "name": "timetables_default_preview",
+      "route": "/timetables/default/preview",
+      "url": "https://sandboxai.omniscol.com/timetables/default/preview"
+    }
+  ]
+}
