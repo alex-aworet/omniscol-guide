@@ -16,7 +16,7 @@
    ./start.sh
    ```
 
-3. Ouvrez votre navigateur à l'adresse : **http://localhost:8000**
+3. Ouvrez votre navigateur à l'adresse : **http://localhost:8001**
 
 ### Option 2 : Utiliser Node.js (si Python n'est pas disponible)
 
@@ -31,9 +31,9 @@ Puis ouvrez : **http://localhost:8000**
 ## 📝 Notes importantes
 
 - Le serveur doit être en cours d'exécution pour que le site fonctionne correctement
-- Les fichiers utilisent des chemins absolus (commençant par `/`), c'est pourquoi un serveur web est nécessaire
+- Les fichiers doivent être servis via un serveur web (pas en ouvrant directement le fichier HTML)
 - Pour arrêter le serveur, appuyez sur `Ctrl+C` dans le terminal
 
 ## 🔧 Dépannage
 
-Si le port 8000 est déjà utilisé, modifiez la variable `PORT` dans `server.py` pour utiliser un autre port (par exemple 8080, 3000, etc.)
+Si le port 8001 est déjà utilisé, modifiez la variable `PORT` dans `server.py` pour utiliser un autre port (par exemple 8080, 3000, etc.)
