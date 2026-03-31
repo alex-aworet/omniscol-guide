@@ -67,6 +67,19 @@ class GuideAgent:
             except:
                 pass
 
+        # Build context lines, omitting unknown/empty values
+        context_lines = []
+        if system_context['current_route']:
+            context_lines.append(f"- Route: {system_context['current_route']}")
+        if system_context['current_tab']:
+            context_lines.append(f"- Tab: {system_context['current_tab']}")
+        if system_context['visible_sections']:
+            context_lines.append(f"- Visible Sections: {', '.join(system_context['visible_sections'])}")
+        if current_tab_details:
+            context_lines.append(f"- Tab Details: {current_tab_details}")
+
+        page_info_block = '\n'.join(context_lines) if context_lines else '- No specific page detected'
+
         system_prompt = (
             "You are an expert onboarding assistant for a school platform. You have complete knowledge of the platform structure through the site_map.json database.\n"
             "\n"
@@ -75,9 +88,12 @@ class GuideAgent:
             "2. Always provide DIRECT, CONFIDENT answers based on the site_map data\n"
             "3. NEVER express uncertainty about where the user is - the route is DEFINITIVE\n"
             "4. For ANY question about features/actions, IMMEDIATELY use search_ui() to find them\n"
+            "5. NEVER repeat or display raw page metadata (route, tab, visible sections) in your response. The user does not need to see this internal data.\n"
+            "6. NEVER FABRICATE or INVENT UI elements, buttons, or actions that do not appear in the search results. Only describe actions that are explicitly documented in the site_map data.\n"
+            "7. If a specific action (like delete, export, etc.) is NOT found in the search results, say honestly: 'I could not find this specific action in the platform documentation. Please check the page directly or contact support.'\n"
             "\n"
             "ROUTE MATCHING LOGIC - ABSOLUTELY CRITICAL:\n"
-            "The user's current route is: {system_context['current_route']}\n"
+            f"The user's current route is: {system_context['current_route']}\n"
             "When you search for a feature:\n"
             "1. Get the search results with their routes\n"
             "2. COMPARE the result route with the current route EXACTLY\n"
@@ -88,7 +104,8 @@ class GuideAgent:
             "4. If result_route != current_route:\n"
             "   → User is on a DIFFERENT page (100% CERTAIN)\n"
             "   → State where they are clearly\n"
-            "   → Then provide navigation: 'Go to Admin > Users > Teachers. Then click the Add button'\n"
+            "   → Then provide navigation to the correct page (e.g., 'Go to Admin > Users > Teachers')\n"
+            "   → Finally, instruct them on the specific action they asked about (e.g., 'Then click the trash icon to delete')\n"
             "\n"
             "TONE:\n"
             "- Be CERTAIN and CONFIDENT\n"
@@ -96,11 +113,7 @@ class GuideAgent:
             "- Use definitive language: 'Click', 'Look', 'Find', 'Go to'\n"
             "- Be clear and concise\n"
             "\n"
-            f"Current Page Information:\n"
-            f"- Route: {system_context['current_route']}\n"
-            f"- Tab: {system_context['current_tab']}\n"
-            f"- Visible Sections: {', '.join(system_context['visible_sections']) if system_context['visible_sections'] else 'None'}\n"
-            f"{f'- Tab Details: {current_tab_details}' if current_tab_details else ''}\n"
+            f"Current Page Information:\n{page_info_block}\n"
         )
 
         messages = [
@@ -208,18 +221,29 @@ class GuideAgent:
             except:
                 pass
 
+        # Build context lines, omitting unknown/empty values
+        context_lines = []
+        if system_context['current_route']:
+            context_lines.append(f"Current Page: {system_context['current_route']}")
+        if system_context['current_tab']:
+            context_lines.append(f"Tab: {system_context['current_tab']}")
+        if system_context['visible_sections']:
+            context_lines.append(f"Visible Sections: {', '.join(system_context['visible_sections'])}")
+        if current_tab_details:
+            context_lines.append(f"Details: {current_tab_details}")
+
+        page_info_block = '\n'.join(context_lines) if context_lines else 'The user is on the main page.'
+
         # Silent system prompt for auto-summarization
         system_prompt = (
             "You are a brief, helpful onboarding assistant for a school platform. "
             "Generate a concise, natural summary of the current page the user is viewing.\n"
             "\n"
-            f"Current Page: {system_context['current_route']}\n"
-            f"Tab: {system_context['current_tab']}\n"
-            f"Visible Sections: {', '.join(system_context['visible_sections']) if system_context['visible_sections'] else 'None'}\n"
-            f"{f'Details: {current_tab_details}' if current_tab_details else ''}\n"
+            f"{page_info_block}\n"
             "\n"
             "Provide a brief, 2-3 sentence summary of what this page is for and what the user can do here. "
-            "Be conversational and helpful, not technical. Do not ask questions or wait for further input."
+            "Be conversational and helpful, not technical. Do not ask questions or wait for further input. "
+            "NEVER repeat or display raw page metadata (route, tab, visible sections) in your response."
         )
 
         messages = [

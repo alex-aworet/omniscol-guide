@@ -9,7 +9,10 @@ const GuideChat = (function() {
         messages: [],
         container: null,
         input: null,
-        messagesDiv: null
+        messagesDiv: null,
+        bubble: null,
+        notification: null,
+        summarizedRoutes: new Set()  // track all routes that already got a summary
     };
 
     function init() {
@@ -28,7 +31,10 @@ const GuideChat = (function() {
             <div class="guide-chat">
                 <div class="guide-chat-header">
                     <h3>Guide Assistant</h3>
-                    <button class="guide-chat-close" id="guide-close">✕</button>
+                    <div class="guide-chat-header-actions">
+                        <button class="guide-chat-header-btn" id="guide-minimize" title="Minimize">➖</button>
+                        <button class="guide-chat-header-btn" id="guide-close" title="Close & Clear">✕</button>
+                    </div>
                 </div>
                 <div class="guide-chat-messages" id="guide-messages"></div>
                 <div class="guide-chat-input-area">
@@ -50,18 +56,57 @@ const GuideChat = (function() {
         state.container = container;
         state.input = document.getElementById('guide-input');
         state.messagesDiv = document.getElementById('guide-messages');
+
+        // Create floating bubble
+        createBubble();
+    }
+
+    function createBubble() {
+        const bubble = document.createElement('div');
+        bubble.id = 'guide-chat-bubble';
+        bubble.className = 'guide-chat-bubble';
+        bubble.innerHTML = `
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+        `;
+        bubble.title = 'Open Guide Assistant';
+        bubble.addEventListener('click', openFromBubble);
+        document.body.appendChild(bubble);
+        state.bubble = bubble;
+
+        // Chat starts collapsed, bubble visible
+        state.container?.classList.add('hidden');
+
+        // Create notification toast element
+        const notification = document.createElement('div');
+        notification.id = 'guide-chat-notification';
+        notification.className = 'guide-chat-notification hidden';
+        document.body.appendChild(notification);
+        state.notification = notification;
+
+        // Clicking the notification opens the chat
+        notification.addEventListener('click', () => {
+            hideNotification();
+            openFromBubble();
+        });
     }
 
     function attachEventListeners() {
         const sendBtn = document.getElementById('guide-send');
         const closeBtn = document.getElementById('guide-close');
+        const minimizeBtn = document.getElementById('guide-minimize');
         
         sendBtn.addEventListener('click', handleSendMessage);
         state.input.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') handleSendMessage();
         });
         
-        closeBtn.addEventListener('click', toggleChat);
+        // Minimize: collapse to bubble, keep chat history
+        minimizeBtn.addEventListener('click', minimizeChat);
+        
+        // Close: collapse to bubble AND clear chat history
+        closeBtn.addEventListener('click', closeAndClearChat);
         
         // Automatically send page summary when page loads
         generateAutoSummary();
@@ -167,19 +212,80 @@ const GuideChat = (function() {
         state.messages.push({ role, content });
     }
 
+    function minimizeChat() {
+        // Collapse to bubble, keep messages
+        state.container?.classList.add('hidden');
+        state.bubble?.classList.remove('hidden');
+    }
+
+    function closeAndClearChat() {
+        // Collapse to bubble AND clear messages
+        state.container?.classList.add('hidden');
+        state.bubble?.classList.remove('hidden');
+        // Clear messages from DOM and state
+        if (state.messagesDiv) {
+            state.messagesDiv.innerHTML = '';
+        }
+        state.messages = [];
+    }
+
+    function openFromBubble() {
+        state.container?.classList.remove('hidden');
+        state.bubble?.classList.add('hidden');
+        hideNotification();
+        // If chat was cleared (no messages), regenerate summary
+        if (state.messages.length === 0) {
+            generateAutoSummary();
+        }
+    }
+
     function toggleChat() {
-        state.container?.classList.toggle('hidden');
+        const isHidden = state.container?.classList.contains('hidden');
+        if (isHidden) {
+            openFromBubble();
+        } else {
+            minimizeChat();
+        }
     }
 
     function show() {
         state.container?.classList.remove('hidden');
+        state.bubble?.classList.add('hidden');
     }
 
     function hide() {
         state.container?.classList.add('hidden');
+        state.bubble?.classList.remove('hidden');
+    }
+
+    function showNotification(text) {
+        if (!state.notification) return;
+        // Truncate long summaries for the toast
+        const truncated = text.length > 120 ? text.substring(0, 120) + '…' : text;
+        state.notification.innerHTML = `
+            <div class="guide-notif-content">
+                <span class="guide-notif-icon">📄</span>
+                <span class="guide-notif-text">${truncated}</span>
+            </div>
+        `;
+        state.notification.classList.remove('hidden');
+
+        // Auto-dismiss after 6 seconds
+        clearTimeout(state._notifTimer);
+        state._notifTimer = setTimeout(() => hideNotification(), 6000);
+    }
+
+    function hideNotification() {
+        state.notification?.classList.add('hidden');
+        clearTimeout(state._notifTimer);
     }
 
     async function generateAutoSummary() {
+        // Synchronous guard BEFORE any async work to prevent race conditions
+        const currentRoute = window.location.pathname;
+        if (state.summarizedRoutes.has(currentRoute)) return;
+        state.summarizedRoutes.add(currentRoute);
+
         try {
             // Get page context
             const pageContext = await getPageContext();
@@ -212,10 +318,21 @@ const GuideChat = (function() {
             const summary = data.summary;
             
             if (summary && summary.trim()) {
-                // Add agent response to UI with a "Page Summary" prefix
-                addMessageToUI('agent', `📄 Page Summary: ${summary}`);
-                // Automatically show the chat when summary is received
-                show();
+                // Remove previous summary message from DOM and state
+                const prevSummary = state.messagesDiv?.querySelector('.guide-chat-summary');
+                if (prevSummary) {
+                    prevSummary.remove();
+                    state.messages = state.messages.filter(m => m._isSummary !== true);
+                }
+                // Add new summary to chat history
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'guide-chat-message guide-chat-agent guide-chat-summary';
+                messageDiv.textContent = `📄 ${summary}`;
+                state.messagesDiv.appendChild(messageDiv);
+                state.messagesDiv.scrollTop = state.messagesDiv.scrollHeight;
+                state.messages.push({ role: 'agent', content: `📄 ${summary}`, _isSummary: true });
+                // Show as pop notification (don't open the full chat)
+                showNotification(summary);
             }
         } catch (error) {
             if (error.name === 'AbortError') {
@@ -227,27 +344,24 @@ const GuideChat = (function() {
         }
     }
 
-    // --- Auto-summary on route change ---
+    // --- Auto-summary on route change (debounced) ---
     (function() {
         let lastRoute = window.location.pathname;
+        let debounceTimer = null;
+
         function onRouteChange() {
-            if (window.location.pathname !== lastRoute) {
-                lastRoute = window.location.pathname;
-                if (GuideChat && typeof GuideChat.init === 'function') {
-                    // Remove previous summary messages
-                    const messagesDiv = document.getElementById('guide-messages');
-                    if (messagesDiv) {
-                        Array.from(messagesDiv.querySelectorAll('.guide-chat-agent')).forEach(el => el.remove());
-                    }
-                    // Generate new summary
+            // Debounce: wait 500ms for rapid pushState/replaceState calls to settle
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => {
+                if (window.location.pathname !== lastRoute) {
+                    lastRoute = window.location.pathname;
                     if (typeof GuideChat.generateAutoSummary === 'function') {
                         GuideChat.generateAutoSummary();
-                    } else if (window.generateAutoSummary) {
-                        window.generateAutoSummary();
                     }
                 }
-            }
+            }, 500);
         }
+
         // Patch pushState/replaceState
         const origPush = history.pushState;
         const origReplace = history.replaceState;
