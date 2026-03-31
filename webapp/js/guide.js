@@ -62,6 +62,36 @@ const GuideChat = (function() {
         });
         
         closeBtn.addEventListener('click', toggleChat);
+        
+        // Automatically send page summary when page loads
+        generateAutoSummary();
+    }
+
+    async function getPageContext() {
+        // Get current route from window location
+        const route = window.location.pathname;
+        
+        // Try to determine active tab from page elements
+        let activeTab = null;
+        const tabElements = document.querySelectorAll('[data-tab-id], [role="tab"][aria-selected="true"]');
+        if (tabElements.length > 0) {
+            activeTab = tabElements[0].getAttribute('data-tab-id') || tabElements[0].getAttribute('aria-label');
+        }
+        
+        // Get visible sections from DOM
+        const visibleSections = [];
+        document.querySelectorAll('[data-section-id][style*="display"], [data-section-id]:not([style*="display:none"])').forEach(section => {
+            const sectionId = section.getAttribute('data-section-id');
+            if (sectionId) {
+                visibleSections.push(sectionId);
+            }
+        });
+        
+        return {
+            route,
+            active_tab: activeTab,
+            visible_sections: visibleSections
+        };
     }
 
     async function handleSendMessage() {
@@ -74,8 +104,8 @@ const GuideChat = (function() {
         state.isLoading = true;
         
         try {
-            // Get current tab info if available
-            const currentTab = window.location.pathname;
+            // Get page context
+            const pageContext = await getPageContext();
             
             // Call the API
             const response = await fetch('/api/guide/chat', {
@@ -85,7 +115,9 @@ const GuideChat = (function() {
                 },
                 body: JSON.stringify({
                     message: message,
-                    current_tab: currentTab
+                    route: pageContext.route,
+                    active_tab: pageContext.active_tab,
+                    visible_sections: pageContext.visible_sections
                 })
             });
             
@@ -147,12 +179,91 @@ const GuideChat = (function() {
         state.container?.classList.add('hidden');
     }
 
+    async function generateAutoSummary() {
+        try {
+            // Get page context
+            const pageContext = await getPageContext();
+            
+            // Call the auto-summary API with a timeout
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout
+            
+            const response = await fetch('/api/guide/auto-summary', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    route: pageContext.route,
+                    active_tab: pageContext.active_tab,
+                    visible_sections: pageContext.visible_sections
+                }),
+                signal: controller.signal
+            });
+            
+            clearTimeout(timeoutId);
+            
+            if (!response.ok) {
+                console.warn('Auto-summary API returned error:', response.status);
+                return;
+            }
+            
+            const data = await response.json();
+            const summary = data.summary;
+            
+            if (summary && summary.trim()) {
+                // Add agent response to UI with a "Page Summary" prefix
+                addMessageToUI('agent', `📄 Page Summary: ${summary}`);
+                // Automatically show the chat when summary is received
+                show();
+            }
+        } catch (error) {
+            if (error.name === 'AbortError') {
+                console.warn('Auto-summary request timed out');
+            } else {
+                console.warn('Could not generate auto-summary:', error.message);
+            }
+            // Silently fail - don't show error to user
+        }
+    }
+
+    // --- Auto-summary on route change ---
+    (function() {
+        let lastRoute = window.location.pathname;
+        function onRouteChange() {
+            if (window.location.pathname !== lastRoute) {
+                lastRoute = window.location.pathname;
+                if (GuideChat && typeof GuideChat.init === 'function') {
+                    // Remove previous summary messages
+                    const messagesDiv = document.getElementById('guide-messages');
+                    if (messagesDiv) {
+                        Array.from(messagesDiv.querySelectorAll('.guide-chat-agent')).forEach(el => el.remove());
+                    }
+                    // Generate new summary
+                    if (typeof GuideChat.generateAutoSummary === 'function') {
+                        GuideChat.generateAutoSummary();
+                    } else if (window.generateAutoSummary) {
+                        window.generateAutoSummary();
+                    }
+                }
+            }
+        }
+        // Patch pushState/replaceState
+        const origPush = history.pushState;
+        const origReplace = history.replaceState;
+        history.pushState = function() { origPush.apply(this, arguments); window.dispatchEvent(new Event('locationchange')); };
+        history.replaceState = function() { origReplace.apply(this, arguments); window.dispatchEvent(new Event('locationchange')); };
+        window.addEventListener('popstate', () => window.dispatchEvent(new Event('locationchange')));
+        window.addEventListener('locationchange', onRouteChange);
+    })();
+
     return {
         init,
         show,
         hide,
         toggle: toggleChat,
-        addMessage: addMessageToUI
+        addMessage: addMessageToUI,
+        generateAutoSummary
     };
 })();
 
