@@ -13,6 +13,11 @@ import json
 from pathlib import Path
 import logging
 
+from pydantic import BaseModel
+from guide.agent import GuideAgent
+from guide.providers.ollama_adapter import OllamaAdapter
+
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -138,6 +143,74 @@ async def ping():
     return JSONResponse({"success": True, "pong": True})
 
 
+class GuideChatRequest(BaseModel):
+    message: str
+    route: str | None = None
+    active_tab: str | None = None
+    visible_sections: list[str] | None = None
+
+@app.post("/api/guide/chat")
+async def guide_chat(req: GuideChatRequest):
+    """Chat endpoint with GuideAgent using Mistral
+    
+    Requires: ollama pull mistral
+    """
+    logger.info("📨 Incoming chat request")
+    try:
+        logger.info(f"💬 Message: {req.message}")
+        logger.info(f"📍 Page context - Route: {req.route}, Tab: {req.active_tab}")
+        
+        page_context = {
+            "route": req.route,
+            "active_tab": req.active_tab,
+            "visible_sections": req.visible_sections or []
+        }
+        
+        async with GuideAgent(OllamaAdapter(model="mistral")) as agent:
+            logger.info("🤖 Invoking GuideAgent with Mistral...")
+            response = await agent.ask(req.message, page_context)
+            logger.info(f"✅ Agent response received")
+            return response
+    except Exception as e:
+        logger.error(f"❌ Error in guide_chat: {type(e).__name__}: {str(e)}", exc_info=True)
+        raise HTTPException(status_code=500, detail=f"Agent error: {str(e)}")
+
+
+class AutoSummaryRequest(BaseModel):
+    route: str | None = None
+    active_tab: str | None = None
+    visible_sections: list[str] | None = None
+
+@app.post("/api/guide/auto-summary")
+async def auto_summary(req: AutoSummaryRequest):
+    """Auto-generate a summary of the current page using silent system prompt
+    
+    This endpoint silently generates a summary of whatever page the user is on.
+    Requires: ollama pull mistral
+    """
+    logger.info("📄 Incoming auto-summary request")
+    try:
+        logger.info(f"📍 Page context - Route: {req.route}, Tab: {req.active_tab}")
+        
+        page_context = {
+            "route": req.route,
+            "active_tab": req.active_tab,
+            "visible_sections": req.visible_sections or []
+        }
+        
+        async with GuideAgent(OllamaAdapter(model="mistral")) as agent:
+            logger.info("🤖 Generating page summary...")
+            response = await agent.auto_summarize(page_context)
+            logger.info(f"✅ Summary generated")
+            return response
+    except Exception as e:
+        logger.warning(f"⚠️  Auto-summary error: {type(e).__name__}: {str(e)}")
+        # Return a user-friendly error response instead of raising
+        return {
+            "summary": "Summary temporarily unavailable. Make sure Ollama is running: ollama serve"
+        }
+
+
 @app.get("/api/{path:path}")
 async def api_get_handler(path: str):
     """Handle GET requests to API endpoints"""
@@ -184,6 +257,7 @@ async def api_get_handler(path: str):
 @app.post("/api/{path:path}")
 async def api_post_handler(path: str, request: Request):
     """Handle POST requests to API endpoints"""
+    logger.warning(f"⚠️  CATCH-ALL POST HANDLER HIT: {path}")
     # Return mock responses for POST requests
     return JSONResponse({"success": True, "message": "Mock response"})
 

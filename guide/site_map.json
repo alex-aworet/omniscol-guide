@@ -1,0 +1,1511 @@
+{
+  "tabs": [
+    {
+      "id": "home",
+      "title": "Home",
+      "description": "Main homepage providing a summary of today's activity and quick access to all major platform sections.",
+      "route": "/",
+      "image": "home.png",
+      "sections": [
+        {
+          "id": "header-title",
+          "title": "Application Title",
+          "selector": ".header-title",
+          "description": "Displays the application name and current environment (e.g., demo instance)."
+        },
+        {
+          "id": "daily-summary",
+          "title": "Daily Summary Panel",
+          "selector": ".daily-summary",
+          "description": "Overview of today's scheduled courses, classes, teachers, and classroom occupancy."
+        },
+        {
+          "id": "courses-today",
+          "title": "Courses of the Day",
+          "selector": ".courses-today",
+          "description": "Displays today's scheduled courses or indicates if none are planned."
+        },
+        {
+          "id": "classes-today",
+          "title": "Classes of the Day",
+          "selector": ".classes-today",
+          "description": "Shows classes scheduled for today or indicates if none are assigned."
+        },
+        {
+          "id": "teachers-today",
+          "title": "Teachers of the Day",
+          "selector": ".teachers-today",
+          "description": "Displays teachers involved today or indicates if none are scheduled."
+        },
+        {
+          "id": "rooms-occupancy",
+          "title": "Classroom Occupancy",
+          "selector": ".rooms-occupancy",
+          "description": "Shows classroom usage for the day or indicates if no rooms are occupied."
+        },
+        {
+          "id": "configuration-message",
+          "title": "Configuration Status Message",
+          "selector": ".config-message",
+          "description": "Message informing the user that the system is configured and offering access to onboarding steps."
+        },
+        {
+          "id": "quick-access-cards",
+          "title": "Quick Access Shortcuts",
+          "selector": ".quick-access",
+          "description": "Set of large shortcut buttons for navigating to key sections of the platform."
+        },
+        {
+          "id": "shortcut-schedule",
+          "title": "EDT Shortcut",
+          "selector": ".shortcut-edt",
+          "description": "Shortcut to access timetable visualization."
+        },
+        {
+          "id": "shortcut-dashboard",
+          "title": "Dashboard Shortcut",
+          "selector": ".shortcut-dashboard",
+          "description": "Shortcut to access analytics dashboards."
+        },
+        {
+          "id": "shortcut-absences",
+          "title": "Absences Shortcut",
+          "selector": ".shortcut-absences",
+          "description": "Shortcut to access absence management."
+        },
+        {
+          "id": "shortcut-timetables",
+          "title": "Timetable Management Shortcut",
+          "selector": ".shortcut-timetables",
+          "description": "Shortcut to access timetable creation and management."
+        },
+        {
+          "id": "shortcut-admin",
+          "title": "Administration Shortcut",
+          "selector": ".shortcut-admin",
+          "description": "Shortcut to access admin settings and configuration."
+        },
+        {
+          "id": "sidebar-navigation",
+          "title": "Sidebar Navigation",
+          "selector": ".sidebar",
+          "description": "Vertical navigation bar providing access to all main sections of the platform."
+        },
+        {
+          "id": "search-bar",
+          "title": "Global Search",
+          "selector": ".search-bar",
+          "description": "Search field allowing quick lookup of students, classes, or actions."
+        },
+        {
+          "id": "account-menu",
+          "title": "User Account Menu",
+          "selector": ".account-menu",
+          "description": "Top-right dropdown menu for accessing user profile and account settings."
+        }
+      ]
+    },
+    {
+      "id": "teachers",
+      "title": "Teachers",
+      "description": "Click 'Teachers' tab in the Dashboard to view and manage teacher workload, schedules, and hours.",
+      "route": "/dashboard/teachers",
+      "sections": [
+        {
+          "id": "top-navigation",
+          "title": "Dashboard Navigation Tabs",
+          "selector": ".dashboard-tabs",
+          "description": "Main navigation tabs to switch between professors, rooms, resources, subjects, classes, and students."
+        },
+        {
+          "id": "time-filter-tabs",
+          "title": "Time Range Filters",
+          "selector": ".time-filters",
+          "description": "Controls to switch between weekly, monthly, yearly, or custom date interval views."
+        },
+        {
+          "id": "week-timeline",
+          "title": "Week Timeline Selector",
+          "selector": ".week-timeline",
+          "description": "Horizontal timeline used to navigate between weeks of the school year."
+        },
+        {
+          "id": "chart-teacher-hours",
+          "title": "Teacher Workload Chart",
+          "selector": ".teacher-hours-chart",
+          "description": "Bar chart showing the number of teaching hours per teacher, including additional and canceled hours."
+        },
+        {
+          "id": "chart-legend",
+          "title": "Chart Legend",
+          "selector": ".chart-legend",
+          "description": "Legend explaining the color codes for normal hours, extra hours, and canceled hours."
+        },
+        {
+          "id": "search-bar",
+          "title": "Search and Filter Input",
+          "selector": ".filter-input",
+          "description": "Search field used to quickly find a specific teacher in the dashboard."
+        },
+        {
+          "id": "teachers-analytics-table",
+          "title": "Teachers Analytics Table",
+          "selector": ".teachers-table",
+          "description": "Detailed table displaying teacher information such as subjects taught, number of classes, total hours, extra hours, and canceled hours."
+        },
+        {
+          "id": "table-sort-controls",
+          "title": "Table Sorting Controls",
+          "selector": ".table-sort",
+          "description": "Controls allowing sorting of teachers based on different metrics like name or workload."
+        },
+        {
+          "id": "sidebar-navigation",
+          "title": "Sidebar Navigation",
+          "selector": ".sidebar",
+          "description": "Vertical navigation bar providing access to main platform sections such as dashboard, calendar, and administration."
+        },
+        {
+          "id": "account-menu",
+          "title": "User Account Menu",
+          "selector": ".account-menu",
+          "description": "Top-right dropdown menu for accessing user profile and account settings."
+        }
+      ]
+    },
+    {
+      "id": "classrooms",
+      "title": "Classrooms",
+      "description": "Click 'Classrooms' tab in the Dashboard to check room usage, occupancy rates, and course distribution.",
+      "route": "/dashboard/classrooms",
+      "sections": [
+        {
+          "id": "top-navigation",
+          "title": "Dashboard Navigation Tabs",
+          "selector": ".dashboard-tabs",
+          "description": "Main navigation tabs to switch between teachers, classrooms, resources, subjects, classes, and students."
+        },
+        {
+          "id": "time-filter-tabs",
+          "title": "Time Range Filters",
+          "selector": ".time-filters",
+          "description": "Controls to switch between weekly, monthly, yearly, or custom date interval views."
+        },
+        {
+          "id": "week-timeline",
+          "title": "Week Timeline Selector",
+          "selector": ".week-timeline",
+          "description": "Horizontal timeline used to navigate between weeks of the school year."
+        },
+        {
+          "id": "classroom-hours-chart",
+          "title": "Course Hours Distribution Chart",
+          "selector": ".classroom-hours-chart",
+          "description": "Donut chart showing how course hours are distributed across classrooms."
+        },
+        {
+          "id": "opening-rate-chart",
+          "title": "Opening Rate Chart",
+          "selector": ".opening-rate-chart",
+          "description": "Bar chart comparing classroom opening rates across dates and locations."
+        },
+        {
+          "id": "occupancy-chart",
+          "title": "Occupancy and Usage Chart",
+          "selector": ".occupancy-chart",
+          "description": "Combined chart showing classroom course hours and occupancy rates for different rooms."
+        },
+        {
+          "id": "search-bar",
+          "title": "Search and Filter Input",
+          "selector": ".filter-input",
+          "description": "Search field used to quickly find a classroom in the dashboard."
+        },
+        {
+          "id": "classrooms-analytics-table",
+          "title": "Classrooms Analytics Table",
+          "selector": ".classrooms-table",
+          "description": "Detailed table displaying classroom information such as capacity, course hours, opening days, daily usage, and student count."
+        },
+        {
+          "id": "table-sort-controls",
+          "title": "Table Sorting Controls",
+          "selector": ".table-sort",
+          "description": "Controls allowing sorting of classrooms by name or usage metrics."
+        },
+        {
+          "id": "sidebar-navigation",
+          "title": "Sidebar Navigation",
+          "selector": ".sidebar",
+          "description": "Vertical navigation bar providing access to main platform sections such as dashboard, calendar, and administration."
+        },
+        {
+          "id": "account-menu",
+          "title": "User Account Menu",
+          "selector": ".account-menu",
+          "description": "Top-right dropdown menu for accessing user profile and account settings."
+        }
+      ]
+    },
+    {
+      "id": "resources",
+      "title": "Resources",
+      "description": "Click 'Resources' tab in the Dashboard to track equipment, materials, and their usage across the school.",
+      "route": "/dashboard/resources",
+      "sections": [
+        {
+          "id": "top-navigation",
+          "title": "Dashboard Navigation Tabs",
+          "selector": ".dashboard-tabs",
+          "description": "Main navigation tabs to switch between teachers, classrooms, resources, subjects, classes, and students."
+        },
+        {
+          "id": "time-filter-tabs",
+          "title": "Time Range Filters",
+          "selector": ".time-filters",
+          "description": "Controls to switch between weekly, monthly, yearly, or custom date interval views."
+        },
+        {
+          "id": "week-timeline",
+          "title": "Week Timeline Selector",
+          "selector": ".week-timeline",
+          "description": "Horizontal timeline used to navigate between weeks of the school year."
+        },
+        {
+          "id": "resources-header",
+          "title": "Resources Dashboard Header",
+          "selector": ".resources-header",
+          "description": "Title section indicating the current resource dashboard and selected time range."
+        },
+        {
+          "id": "resources-table",
+          "title": "Resources Table",
+          "selector": ".resources-table",
+          "description": "Main table listing all available resources with their quantity, usage in hours, number of active days, and daily usage metrics."
+        },
+        {
+          "id": "table-columns",
+          "title": "Resource Metrics Columns",
+          "selector": ".table-columns",
+          "description": "Columns displaying key metrics such as quantity, total hours of use, number of days used, and usage per day."
+        },
+        {
+          "id": "table-sort-controls",
+          "title": "Table Sorting Controls",
+          "selector": ".table-sort",
+          "description": "Controls allowing sorting of resources by name or usage metrics."
+        },
+        {
+          "id": "sidebar-navigation",
+          "title": "Sidebar Navigation",
+          "selector": ".sidebar",
+          "description": "Vertical navigation bar providing access to main platform sections such as dashboard, calendar, and administration."
+        },
+        {
+          "id": "account-menu",
+          "title": "User Account Menu",
+          "selector": ".account-menu",
+          "description": "Top-right dropdown menu for accessing user profile and account settings."
+        }
+      ]
+    },
+    {
+      "id": "subjects",
+      "title": "Subjects",
+      "description": "Click 'Subjects' tab in the Dashboard to view teaching hours distribution and course breakdown by subject.",
+      "route": "/dashboard/subjects",
+      "sections": [
+        {
+          "id": "top-navigation",
+          "title": "Dashboard Navigation Tabs",
+          "selector": ".dashboard-tabs",
+          "description": "Main navigation tabs to switch between teachers, classrooms, resources, subjects, classes, and students."
+        },
+        {
+          "id": "time-filter-tabs",
+          "title": "Time Range Filters",
+          "selector": ".time-filters",
+          "description": "Controls to switch between weekly, monthly, yearly, or custom date interval views."
+        },
+        {
+          "id": "week-timeline",
+          "title": "Week Timeline Selector",
+          "selector": ".week-timeline",
+          "description": "Horizontal timeline used to navigate between weeks of the school year."
+        },
+        {
+          "id": "subjects-hours-distribution",
+          "title": "Subjects Hours Distribution",
+          "selector": ".subjects-hours-chart",
+          "description": "Pie chart showing how total teaching hours are distributed across different subjects."
+        },
+        {
+          "id": "subjects-hours-bar-chart",
+          "title": "Subjects Hours Comparison",
+          "selector": ".subjects-bar-chart",
+          "description": "Bar chart comparing the number of teaching hours for each subject over the selected period."
+        },
+        {
+          "id": "course-type-distribution",
+          "title": "Course Type Distribution",
+          "selector": ".course-type-chart",
+          "description": "Donut chart showing the proportion of different course types such as lectures, seminars, and workshops."
+        },
+        {
+          "id": "search-bar",
+          "title": "Search and Filter Input",
+          "selector": ".filter-input",
+          "description": "Search field used to quickly find a subject in the dashboard."
+        },
+        {
+          "id": "subjects-analytics-table",
+          "title": "Subjects Analytics Table",
+          "selector": ".subjects-table",
+          "description": "Detailed table displaying subject information including total hours, number of days taught, and distribution across different academic years."
+        },
+        {
+          "id": "table-sort-controls",
+          "title": "Table Sorting Controls",
+          "selector": ".table-sort",
+          "description": "Controls allowing sorting of subjects by name or teaching metrics."
+        },
+        {
+          "id": "sidebar-navigation",
+          "title": "Sidebar Navigation",
+          "selector": ".sidebar",
+          "description": "Vertical navigation bar providing access to main platform sections such as dashboard, calendar, and administration."
+        },
+        {
+          "id": "account-menu",
+          "title": "User Account Menu",
+          "selector": ".account-menu",
+          "description": "Top-right dropdown menu for accessing user profile and account settings."
+        }
+      ]
+    },
+    {
+      "id": "classes",
+      "title": "Classes",
+      "description": "Dashboard view for analyzing class activity, teaching hours, and student capacity through charts and detailed class-level metrics.",
+      "route": "/dashboard/classes",
+      "image": "dashboard_classes.png",
+      "sections": [
+        {
+          "id": "top-navigation",
+          "title": "Dashboard Navigation Tabs",
+          "selector": ".dashboard-tabs",
+          "description": "Main navigation tabs to switch between teachers, classrooms, resources, subjects, classes, and students."
+        },
+        {
+          "id": "time-filter-tabs",
+          "title": "Time Range Filters",
+          "selector": ".time-filters",
+          "description": "Controls to switch between weekly, monthly, yearly, or custom date interval views."
+        },
+        {
+          "id": "week-timeline",
+          "title": "Week Timeline Selector",
+          "selector": ".week-timeline",
+          "description": "Horizontal timeline used to navigate between weeks of the school year."
+        },
+        {
+          "id": "class-hours-distribution-chart",
+          "title": "Class Hours Distribution",
+          "selector": ".class-hours-chart",
+          "description": "Pie chart showing how teaching hours are distributed across classes."
+        },
+        {
+          "id": "class-hours-comparison-chart",
+          "title": "Class Hours Comparison",
+          "selector": ".class-hours-comparison",
+          "description": "Bar chart comparing the total number of teaching hours for each class during the selected period."
+        },
+        {
+          "id": "class-capacity-chart",
+          "title": "Class Capacity Distribution",
+          "selector": ".class-capacity-chart",
+          "description": "Donut chart showing the theoretical number of students per class."
+        },
+        {
+          "id": "search-bar",
+          "title": "Search and Filter Input",
+          "selector": ".filter-input",
+          "description": "Search field used to quickly find a specific class in the dashboard."
+        },
+        {
+          "id": "classes-analytics-table",
+          "title": "Classes Analytics Table",
+          "selector": ".classes-table",
+          "description": "Detailed table displaying class information such as student count, total teaching hours, number of active days, and associated subjects."
+        },
+        {
+          "id": "table-sort-controls",
+          "title": "Table Sorting Controls",
+          "selector": ".table-sort",
+          "description": "Controls allowing sorting of classes by name or analytics metrics."
+        },
+        {
+          "id": "sidebar-navigation",
+          "title": "Sidebar Navigation",
+          "selector": ".sidebar",
+          "description": "Vertical navigation bar providing access to main platform sections such as dashboard, calendar, timetables, and administration."
+        },
+        {
+          "id": "account-menu",
+          "title": "User Account Menu",
+          "selector": ".account-menu",
+          "description": "Top-right dropdown menu for accessing user profile and account settings."
+        }
+      ]
+    },
+    {
+      "id": "students",
+      "title": "Students",
+      "description": "Dashboard view for analyzing student distribution, workload, and academic activity through visual summaries and detailed data.",
+      "route": "/dashboard/students",
+      "image": "dashboard_students.png",
+      "sections": [
+        {
+          "id": "top-navigation",
+          "title": "Dashboard Navigation Tabs",
+          "selector": ".dashboard-tabs",
+          "description": "Main navigation tabs to switch between teachers, classrooms, resources, subjects, classes, and students."
+        },
+        {
+          "id": "time-filter-tabs",
+          "title": "Time Range Filters",
+          "selector": ".time-filters",
+          "description": "Controls to switch between weekly, monthly, yearly, or custom date interval views."
+        },
+        {
+          "id": "week-timeline",
+          "title": "Week Timeline Selector",
+          "selector": ".week-timeline",
+          "description": "Horizontal timeline used to navigate between weeks of the school year."
+        },
+        {
+          "id": "gender-distribution-chart",
+          "title": "Gender Distribution Chart",
+          "selector": ".gender-chart",
+          "description": "Donut chart showing the distribution of students by gender."
+        },
+        {
+          "id": "student-hours-chart",
+          "title": "Student Workload Chart",
+          "selector": ".student-hours-chart",
+          "description": "Bar chart showing the number of course hours per student over the selected period."
+        },
+        {
+          "id": "search-bar",
+          "title": "Search and Filter Input",
+          "selector": ".filter-input",
+          "description": "Search field used to quickly find a specific student."
+        },
+        {
+          "id": "students-analytics-table",
+          "title": "Students Analytics Table",
+          "selector": ".students-table",
+          "description": "Detailed table displaying student data including hours, classes, absences, and subject participation."
+        },
+        {
+          "id": "table-sort-controls",
+          "title": "Table Sorting Controls",
+          "selector": ".table-sort",
+          "description": "Controls allowing sorting of students by different metrics such as workload or name."
+        },
+        {
+          "id": "sidebar-navigation",
+          "title": "Sidebar Navigation",
+          "selector": ".sidebar",
+          "description": "Vertical navigation bar providing access to main platform sections such as dashboard, calendar, timetables, and administration."
+        },
+        {
+          "id": "account-menu",
+          "title": "User Account Menu",
+          "selector": ".account-menu",
+          "description": "Top-right dropdown menu for accessing user profile and account settings."
+        }
+      ]
+    },
+    {
+      "id": "schedule",
+      "title": "Schedule",
+      "description": "Main schedule workspace used to visualize and navigate weekly timetables, currently showing an empty state with no courses.",
+      "route": "/schedule",
+      "image": "schedule.png",
+      "sections": [
+        {
+          "id": "header-bar",
+          "title": "Schedule Header Controls",
+          "selector": ".schedule-header",
+          "description": "Top control bar displaying date navigation, timetable selector, school year, and quick actions."
+        },
+        {
+          "id": "date-navigation",
+          "title": "Date Navigation Controls",
+          "selector": ".date-navigation",
+          "description": "Controls to navigate between weeks and adjust the displayed date range."
+        },
+        {
+          "id": "timetable-selector",
+          "title": "Timetable Selector",
+          "selector": ".timetable-selector",
+          "description": "Dropdown used to select or switch between different timetables."
+        },
+        {
+          "id": "schoolyear-label",
+          "title": "School Year Indicator",
+          "selector": ".schoolyear-label",
+          "description": "Displays the current school year associated with the schedule."
+        },
+        {
+          "id": "view-controls",
+          "title": "View and Display Controls",
+          "selector": ".view-controls",
+          "description": "Controls used to switch between different schedule display modes or layouts."
+        },
+        {
+          "id": "week-timeline",
+          "title": "Week Timeline Selector",
+          "selector": ".week-timeline",
+          "description": "Horizontal timeline used to navigate between weeks of the school year."
+        },
+        {
+          "id": "main-schedule-canvas",
+          "title": "Schedule Canvas",
+          "selector": ".schedule-canvas",
+          "description": "Main area where the weekly timetable is displayed."
+        },
+        {
+          "id": "empty-schedule-state",
+          "title": "Empty Schedule State",
+          "selector": ".empty-state",
+          "description": "Placeholder message indicating that no courses are currently scheduled for the selected week."
+        },
+        {
+          "id": "sidebar-navigation",
+          "title": "Sidebar Navigation",
+          "selector": ".sidebar",
+          "description": "Vertical navigation bar providing access to main platform sections such as dashboard, calendar, timetables, and administration."
+        },
+        {
+          "id": "account-menu",
+          "title": "User Account Menu",
+          "selector": ".account-menu",
+          "description": "Top-right dropdown menu for accessing user profile and account settings."
+        }
+      ]
+    },
+    {
+      "id": "schedule-reorganization",
+      "title": "Schedule Reorganization",
+      "description": "Interactive interface for reorganizing and managing a timetable, including editing courses, navigating weeks, and adjusting schedule structure.",
+      "route": "/schedule/reorganization",
+      "image": "schedules_reorganization.png",
+      "sections": [
+        {
+          "id": "header-bar",
+          "title": "Schedule Header Controls",
+          "selector": ".schedule-header",
+          "description": "Top control bar displaying date range, timetable selection, school year, and quick actions."
+        },
+        {
+          "id": "date-navigation",
+          "title": "Date Navigation Controls",
+          "selector": ".date-navigation",
+          "description": "Controls to navigate between weeks and adjust the displayed date range."
+        },
+        {
+          "id": "timetable-selector",
+          "title": "Timetable Selector",
+          "selector": ".timetable-selector",
+          "description": "Dropdown used to select or switch between different timetables."
+        },
+        {
+          "id": "schoolyear-label",
+          "title": "School Year Indicator",
+          "selector": ".schoolyear-label",
+          "description": "Displays the current school year being used for the schedule."
+        },
+        {
+          "id": "action-buttons",
+          "title": "Quick Actions",
+          "selector": ".schedule-actions",
+          "description": "Controls for saving, resetting, or performing quick operations on the timetable."
+        },
+        {
+          "id": "add-course-button",
+          "title": "Add Course Button",
+          "selector": ".btn-add-course",
+          "description": "Primary action button used to add a new course to the timetable."
+        },
+        {
+          "id": "week-timeline",
+          "title": "Week Timeline Selector",
+          "selector": ".week-timeline",
+          "description": "Horizontal timeline used to navigate between weeks of the school year."
+        },
+        {
+          "id": "main-schedule-canvas",
+          "title": "Schedule Canvas",
+          "selector": ".schedule-canvas",
+          "description": "Main workspace where the timetable is visualized and reorganized."
+        },
+        {
+          "id": "empty-schedule-state",
+          "title": "Empty Schedule State",
+          "selector": ".empty-state",
+          "description": "Placeholder area indicating that no courses are currently displayed in the selected week."
+        },
+        {
+          "id": "right-panel",
+          "title": "Classes Panel",
+          "selector": ".classes-panel",
+          "description": "Side panel listing classes and their associated courses that can be used or organized within the timetable."
+        },
+        {
+          "id": "class-course-card",
+          "title": "Course Cards",
+          "selector": ".course-card",
+          "description": "Cards representing individual courses with details such as duration, subject, and assigned group."
+        },
+        {
+          "id": "course-actions",
+          "title": "Course Card Actions",
+          "selector": ".course-actions",
+          "description": "Actions available for each course such as editing, duplicating, or deleting."
+        },
+        {
+          "id": "sidebar-navigation",
+          "title": "Sidebar Navigation",
+          "selector": ".sidebar",
+          "description": "Vertical navigation bar providing access to main platform sections such as dashboard, calendar, timetables, and administration."
+        },
+        {
+          "id": "account-menu",
+          "title": "User Account Menu",
+          "selector": ".account-menu",
+          "description": "Top-right dropdown menu for accessing user profile and account settings."
+        }
+      ]
+    },
+    {
+      "id": "absences",
+      "title": "Absences",
+      "description": "Central absence management interface for tracking, reviewing, and declaring absences across teachers, classes, and students.",
+      "route": "/absences",
+      "image": "absences.png",
+      "sections": [
+        {
+          "id": "top-navigation",
+          "title": "Absence Navigation Tabs",
+          "selector": ".absence-tabs",
+          "description": "Main navigation tabs used to switch between teacher, class, and student absence views."
+        },
+        {
+          "id": "schoolyear-selector",
+          "title": "School Year Selector",
+          "selector": ".schoolyear-selector",
+          "description": "Dropdown used to select the school year for which absences are displayed."
+        },
+        {
+          "id": "share-control",
+          "title": "Share Control",
+          "selector": ".share-control",
+          "description": "Control used to share or export the current absence view."
+        },
+        {
+          "id": "declare-absence-button",
+          "title": "Declare Absence Button",
+          "selector": ".btn-declare-absence",
+          "description": "Primary action button used to declare a new absence."
+        },
+        {
+          "id": "absence-status-panel",
+          "title": "Absence Status Panel",
+          "selector": ".absence-status-panel",
+          "description": "Summary panel displaying absence counts by status such as accepted, pending, refused, and abandoned."
+        },
+        {
+          "id": "accepted-indicator",
+          "title": "Accepted Absences Indicator",
+          "selector": ".accepted-absences",
+          "description": "Circular indicator showing the number of validated absences."
+        },
+        {
+          "id": "pending-indicator",
+          "title": "Pending Absences Indicator",
+          "selector": ".pending-absences",
+          "description": "Circular indicator showing the number of absences awaiting validation."
+        },
+        {
+          "id": "refused-indicator",
+          "title": "Refused Absences Indicator",
+          "selector": ".refused-absences",
+          "description": "Circular indicator showing the number of rejected absences."
+        },
+        {
+          "id": "abandoned-indicator",
+          "title": "Abandoned Absences Indicator",
+          "selector": ".abandoned-absences",
+          "description": "Circular indicator showing the number of canceled or abandoned absences."
+        },
+        {
+          "id": "time-filter-tabs",
+          "title": "Time Range Filters",
+          "selector": ".time-filters",
+          "description": "Controls to switch between weekly, monthly, yearly, or custom date interval views."
+        },
+        {
+          "id": "week-timeline",
+          "title": "Week Timeline Selector",
+          "selector": ".week-timeline",
+          "description": "Horizontal timeline used to navigate between weeks of the school year."
+        },
+        {
+          "id": "selected-period-label",
+          "title": "Selected Period Label",
+          "selector": ".selected-period",
+          "description": "Label showing the exact date range currently displayed."
+        },
+        {
+          "id": "calendar-view-toggle",
+          "title": "Calendar View Toggle",
+          "selector": ".calendar-view-toggle",
+          "description": "Control used to switch the absence display to a calendar-style view."
+        },
+        {
+          "id": "absence-results-area",
+          "title": "Absence Results Area",
+          "selector": ".absence-results",
+          "description": "Main content area displaying absence records for the selected period or an empty-state message when none are available."
+        },
+        {
+          "id": "empty-state-message",
+          "title": "No Absences Empty State",
+          "selector": ".empty-state",
+          "description": "Message indicating that no absences are recorded during the selected time period."
+        },
+        {
+          "id": "sidebar-navigation",
+          "title": "Sidebar Navigation",
+          "selector": ".sidebar",
+          "description": "Vertical navigation bar providing access to main platform sections such as dashboard, calendar, timetables, and administration."
+        },
+        {
+          "id": "account-menu",
+          "title": "User Account Menu",
+          "selector": ".account-menu",
+          "description": "Top-right dropdown menu for accessing user profile and account settings."
+        }
+      ]
+    },
+    {
+      "id": "student-absences",
+      "title": "Student Absences",
+      "description": "Absence management page for tracking and managing student absences with status summaries, filters, and detailed records.",
+      "route": "/absences/students",
+      "image": "absences_students.png",
+      "sections": [
+        {
+          "id": "top-navigation",
+          "title": "Absence Navigation Tabs",
+          "selector": ".absence-tabs",
+          "description": "Main navigation tabs used to switch between teachers, classes, and student absences."
+        },
+        {
+          "id": "schoolyear-selector",
+          "title": "School Year Selector",
+          "selector": ".schoolyear-selector",
+          "description": "Dropdown used to select the school year for which absences are displayed."
+        },
+        {
+          "id": "declare-absence-button",
+          "title": "Declare Absence Button",
+          "selector": ".btn-declare-absence",
+          "description": "Primary action button used to declare a new student absence."
+        },
+        {
+          "id": "absence-status-panel",
+          "title": "Absence Status Panel",
+          "selector": ".absence-status-panel",
+          "description": "Summary panel displaying absence counts by status such as accepted, pending, refused, and abandoned."
+        },
+        {
+          "id": "accepted-indicator",
+          "title": "Accepted Absences Indicator",
+          "selector": ".accepted-absences",
+          "description": "Circular indicator showing validated absences."
+        },
+        {
+          "id": "pending-indicator",
+          "title": "Pending Absences Indicator",
+          "selector": ".pending-absences",
+          "description": "Circular indicator showing absences awaiting validation."
+        },
+        {
+          "id": "refused-indicator",
+          "title": "Refused Absences Indicator",
+          "selector": ".refused-absences",
+          "description": "Circular indicator showing rejected absences."
+        },
+        {
+          "id": "abandoned-indicator",
+          "title": "Abandoned Absences Indicator",
+          "selector": ".abandoned-absences",
+          "description": "Circular indicator showing canceled or abandoned absences."
+        },
+        {
+          "id": "time-filter-tabs",
+          "title": "Time Range Filters",
+          "selector": ".time-filters",
+          "description": "Controls to switch between weekly, monthly, yearly, or custom date interval views."
+        },
+        {
+          "id": "week-timeline",
+          "title": "Week Timeline Selector",
+          "selector": ".week-timeline",
+          "description": "Horizontal timeline used to navigate between weeks of the school year."
+        },
+        {
+          "id": "selected-period-label",
+          "title": "Selected Period Label",
+          "selector": ".selected-period",
+          "description": "Label showing the current date range being analyzed."
+        },
+        {
+          "id": "student-absence-cards",
+          "title": "Student Absence Records",
+          "selector": ".student-absence-cards",
+          "description": "Detailed cards listing absences per student, including dates, subjects, reasons, comments, and status."
+        },
+        {
+          "id": "absence-fields",
+          "title": "Absence Details Fields",
+          "selector": ".absence-fields",
+          "description": "Fields displaying absence information such as start date, end date, subjects, reason, and comments."
+        },
+        {
+          "id": "absence-status",
+          "title": "Absence Status Indicator",
+          "selector": ".absence-status",
+          "description": "Visual indicator showing whether the absence is accepted, pending, or rejected."
+        },
+        {
+          "id": "row-actions",
+          "title": "Absence Actions",
+          "selector": ".absence-actions",
+          "description": "Actions available for each absence such as editing or deleting the record."
+        },
+        {
+          "id": "sidebar-navigation",
+          "title": "Sidebar Navigation",
+          "selector": ".sidebar",
+          "description": "Vertical navigation bar providing access to main platform sections such as dashboard, calendar, timetables, and administration."
+        },
+        {
+          "id": "account-menu",
+          "title": "User Account Menu",
+          "selector": ".account-menu",
+          "description": "Top-right dropdown menu for accessing user profile and account settings."
+        }
+      ]
+    },
+    {
+      "id": "teacher-absences",
+      "title": "Teacher Absences",
+      "description": "Absence management page for tracking teacher absences with status indicators and time-based filtering.",
+      "route": "/absences/teachers",
+      "image": "absences_teachers.png",
+      "sections": [
+        {
+          "id": "top-navigation",
+          "title": "Absence Navigation Tabs",
+          "selector": ".absence-tabs",
+          "description": "Main navigation tabs used to switch between teachers, classes, and student absences."
+        },
+        {
+          "id": "schoolyear-selector",
+          "title": "School Year Selector",
+          "selector": ".schoolyear-selector",
+          "description": "Dropdown used to select the school year for which absences are displayed."
+        },
+        {
+          "id": "declare-absence-button",
+          "title": "Declare Absence Button",
+          "selector": ".btn-declare-absence",
+          "description": "Primary action button used to declare a new teacher absence."
+        },
+        {
+          "id": "absence-status-panel",
+          "title": "Absence Status Panel",
+          "selector": ".absence-status-panel",
+          "description": "Summary panel displaying absence counts by status such as accepted, pending, refused, and abandoned."
+        },
+        {
+          "id": "accepted-indicator",
+          "title": "Accepted Absences Indicator",
+          "selector": ".accepted-absences",
+          "description": "Circular indicator showing the number of validated absences."
+        },
+        {
+          "id": "pending-indicator",
+          "title": "Pending Absences Indicator",
+          "selector": ".pending-absences",
+          "description": "Circular indicator showing absences awaiting validation."
+        },
+        {
+          "id": "refused-indicator",
+          "title": "Refused Absences Indicator",
+          "selector": ".refused-absences",
+          "description": "Circular indicator showing rejected absences."
+        },
+        {
+          "id": "abandoned-indicator",
+          "title": "Abandoned Absences Indicator",
+          "selector": ".abandoned-absences",
+          "description": "Circular indicator showing canceled or abandoned absences."
+        },
+        {
+          "id": "time-filter-tabs",
+          "title": "Time Range Filters",
+          "selector": ".time-filters",
+          "description": "Controls to switch between weekly, monthly, yearly, or custom date interval views."
+        },
+        {
+          "id": "week-timeline",
+          "title": "Week Timeline Selector",
+          "selector": ".week-timeline",
+          "description": "Horizontal timeline used to navigate between weeks of the school year."
+        },
+        {
+          "id": "selected-period-label",
+          "title": "Selected Period Label",
+          "selector": ".selected-period",
+          "description": "Label showing the current date range being analyzed."
+        },
+        {
+          "id": "absence-results-area",
+          "title": "Absence Results Area",
+          "selector": ".absence-results",
+          "description": "Main area displaying absence records or an empty-state message if none exist for the selected period."
+        },
+        {
+          "id": "empty-state-message",
+          "title": "No Absences Empty State",
+          "selector": ".empty-state",
+          "description": "Message indicating that no absences are recorded during the selected period."
+        },
+        {
+          "id": "sidebar-navigation",
+          "title": "Sidebar Navigation",
+          "selector": ".sidebar",
+          "description": "Vertical navigation bar providing access to main platform sections such as dashboard, calendar, timetables, and administration."
+        },
+        {
+          "id": "account-menu",
+          "title": "User Account Menu",
+          "selector": ".account-menu",
+          "description": "Top-right dropdown menu for accessing user profile and account settings."
+        }
+      ]
+    },
+    {
+      "id": "staff-absences",
+      "title": "Staff Absences",
+      "description": "Absence management page for tracking staff absences, currently showing an empty state with no recorded data.",
+      "route": "/absences/staff",
+      "sections": [
+        {
+          "id": "top-navigation",
+          "title": "Absence Navigation Tabs",
+          "selector": ".absence-tabs",
+          "description": "Main navigation tabs used to switch between staff, classes, and student absences."
+        },
+        {
+          "id": "header-title",
+          "title": "Absence Management Header",
+          "selector": ".absence-header",
+          "description": "Header indicating the absence management section."
+        },
+        {
+          "id": "empty-state-area",
+          "title": "Empty State Area",
+          "selector": ".empty-state",
+          "description": "Main content area currently empty, indicating that no staff absence data has been recorded yet."
+        },
+        {
+          "id": "sidebar-navigation",
+          "title": "Sidebar Navigation",
+          "selector": ".sidebar",
+          "description": "Vertical navigation bar providing access to main platform sections such as dashboard, calendar, timetables, and administration."
+        },
+        {
+          "id": "account-menu",
+          "title": "User Account Menu",
+          "selector": ".account-menu",
+          "description": "Top-right dropdown menu for accessing user profile and account settings."
+        }
+      ]
+    },
+    {
+      "id": "class-absences",
+      "title": "Class Absences",
+      "description": "Absence management page for tracking and declaring absences by class, with status indicators and period-based filters.",
+      "route": "/absences/classes",
+      "image": "absences_classes.png",
+      "sections": [
+        {
+          "id": "top-navigation",
+          "title": "Absence Navigation Tabs",
+          "selector": ".absence-tabs",
+          "description": "Main navigation tabs used to switch between absences for teachers, classes, and students."
+        },
+        {
+          "id": "schoolyear-selector",
+          "title": "School Year Selector",
+          "selector": ".schoolyear-selector",
+          "description": "Dropdown used to select the school year for which absences are displayed."
+        },
+        {
+          "id": "share-control",
+          "title": "Share Control",
+          "selector": ".share-control",
+          "description": "Control used to share or export the current absence view."
+        },
+        {
+          "id": "declare-absence-button",
+          "title": "Declare Absence Button",
+          "selector": ".btn-declare-absence",
+          "description": "Primary action button used to declare a new class absence."
+        },
+        {
+          "id": "absence-status-panel",
+          "title": "Absence Status Panel",
+          "selector": ".absence-status-panel",
+          "description": "Summary panel showing absence counts by status, such as accepted and abandoned absences."
+        },
+        {
+          "id": "accepted-absences-indicator",
+          "title": "Accepted Absences Indicator",
+          "selector": ".accepted-absences",
+          "description": "Circular indicator displaying the number of accepted absences for the selected period."
+        },
+        {
+          "id": "abandoned-absences-indicator",
+          "title": "Abandoned Absences Indicator",
+          "selector": ".abandoned-absences",
+          "description": "Circular indicator displaying the number of abandoned absences for the selected period."
+        },
+        {
+          "id": "time-filter-tabs",
+          "title": "Time Range Filters",
+          "selector": ".time-filters",
+          "description": "Controls to switch between weekly, monthly, yearly, or custom date interval views."
+        },
+        {
+          "id": "week-timeline",
+          "title": "Week Timeline Selector",
+          "selector": ".week-timeline",
+          "description": "Horizontal timeline used to navigate between weeks of the school year."
+        },
+        {
+          "id": "selected-period-label",
+          "title": "Selected Period Label",
+          "selector": ".selected-period",
+          "description": "Label showing the exact date range currently displayed in the absence view."
+        },
+        {
+          "id": "calendar-view-toggle",
+          "title": "Calendar View Toggle",
+          "selector": ".calendar-view-toggle",
+          "description": "Control used to switch the absence display to a calendar-style view."
+        },
+        {
+          "id": "absence-results-area",
+          "title": "Absence Results Area",
+          "selector": ".absence-results",
+          "description": "Main content area displaying absences for the selected period or an empty-state message when no absences are recorded."
+        },
+        {
+          "id": "empty-state-message",
+          "title": "No Absences Empty State",
+          "selector": ".empty-state",
+          "description": "Message indicating that no absences were recorded during the selected time period."
+        },
+        {
+          "id": "sidebar-navigation",
+          "title": "Sidebar Navigation",
+          "selector": ".sidebar",
+          "description": "Vertical navigation bar providing access to main platform sections such as dashboard, calendar, timetables, and administration."
+        },
+        {
+          "id": "account-menu",
+          "title": "User Account Menu",
+          "selector": ".account-menu",
+          "description": "Top-right dropdown menu for accessing user profile and account settings."
+        }
+      ]
+    },
+    {
+      "id": "admin",
+      "title": "Admin",
+      "description": "Central administration interface for managing users, system configuration, and school settings.",
+      "route": "/admin",
+      "image": "admin.png",
+      "sections": [
+        {
+          "id": "top-navigation",
+          "title": "Administration Navigation Tabs",
+          "selector": ".admin-tabs",
+          "description": "Main navigation tabs used to access users, subjects, school years, settings, import/export, and activity logs."
+        },
+        {
+          "id": "user-type-tabs",
+          "title": "User Type Tabs",
+          "selector": ".user-type-tabs",
+          "description": "Tabs used to switch between different user roles such as administrators, teachers, and other user groups."
+        },
+        {
+          "id": "search-bar",
+          "title": "Search and Filter Input",
+          "selector": ".filter-input",
+          "description": "Search field used to quickly find users by name, email, or identifier."
+        },
+        {
+          "id": "add-admin-button",
+          "title": "Add Administrator Button",
+          "selector": ".btn-add-admin",
+          "description": "Primary action button used to create a new administrator account."
+        },
+        {
+          "id": "bulk-actions",
+          "title": "Bulk Actions Controls",
+          "selector": ".bulk-actions",
+          "description": "Controls for performing actions on multiple selected users, such as deactivating accounts."
+        },
+        {
+          "id": "users-table",
+          "title": "Users Table",
+          "selector": ".users-table",
+          "description": "Main table displaying user information including name, role, identifier, status, email, and phone number."
+        },
+        {
+          "id": "row-actions",
+          "title": "User Row Actions",
+          "selector": ".user-actions",
+          "description": "Actions available per user such as viewing details, editing, or managing permissions."
+        },
+        {
+          "id": "sidebar-navigation",
+          "title": "Sidebar Navigation",
+          "selector": ".sidebar",
+          "description": "Vertical navigation bar providing access to main platform sections such as dashboard, calendar, and administration."
+        },
+        {
+          "id": "account-menu",
+          "title": "User Account Menu",
+          "selector": ".account-menu",
+          "description": "Top-right dropdown menu for accessing user profile and account settings."
+        }
+      ]
+    },
+    {
+      "id": "admin-users",
+      "title": "Admin Users",
+      "description": "Go to Admin > Users to manage user accounts, assign roles, and control access permissions.",
+      "route": "/admin/users",
+      "sections": [
+        {
+          "id": "top-navigation",
+          "title": "Administration Navigation Tabs",
+          "selector": ".admin-tabs",
+          "description": "Main navigation tabs used to switch between users, subjects, school years, settings, import/export, and activity logs."
+        },
+        {
+          "id": "user-type-tabs",
+          "title": "User Type Tabs",
+          "selector": ".user-type-tabs",
+          "description": "Tabs used to switch between administrators, teachers, and other user roles."
+        },
+        {
+          "id": "search-bar",
+          "title": "Search and Filter Input",
+          "selector": ".filter-input",
+          "description": "Search field used to quickly find users by name, email, or identifier."
+        },
+        {
+          "id": "add-admin-button",
+          "title": "Add Administrator Button",
+          "selector": ".btn-add-admin",
+          "description": "Primary action button used to create a new administrator account."
+        },
+        {
+          "id": "bulk-actions",
+          "title": "Bulk Actions Controls",
+          "selector": ".bulk-actions",
+          "description": "Controls for performing actions on multiple selected users, such as deactivation."
+        },
+        {
+          "id": "users-table",
+          "title": "Users Table",
+          "selector": ".users-table",
+          "description": "Main table displaying user information including name, role, identifier, status, email, and phone number."
+        },
+        {
+          "id": "user-roles-column",
+          "title": "User Roles Column",
+          "selector": ".user-roles",
+          "description": "Column indicating the roles assigned to each user, such as administrator or teacher."
+        },
+        {
+          "id": "user-status-column",
+          "title": "User Status Column",
+          "selector": ".user-status",
+          "description": "Column showing whether each user account is active or inactive."
+        },
+        {
+          "id": "row-actions",
+          "title": "User Row Actions",
+          "selector": ".user-actions",
+          "description": "Action buttons on each user row. Click the pencil icon to edit the user's details. Click the trash icon to delete the user. A confirmation dialog will appear before deletion."
+        },
+        {
+          "id": "sidebar-navigation",
+          "title": "Sidebar Navigation",
+          "selector": ".sidebar",
+          "description": "Vertical navigation bar providing access to main platform sections such as dashboard, calendar, and administration."
+        },
+        {
+          "id": "account-menu",
+          "title": "User Account Menu",
+          "selector": ".account-menu",
+          "description": "Top-right dropdown menu for accessing user profile and account settings."
+        }
+      ]
+    },
+    {
+      "id": "admin-teachers",
+      "title": "Admin Teachers",
+      "description": "Interface for managing teacher accounts, including viewing, filtering, and adding teachers.",
+      "route": "/admin/users/teachers",
+      "sections": [
+        {
+          "id": "top-navigation",
+          "title": "Administration Navigation Tabs",
+          "selector": ".admin-tabs",
+          "description": "Main navigation tabs allowing access to different administration sections such as users, subjects, school years, and settings."
+        },
+        {
+          "id": "user-type-switch",
+          "title": "User Type Selector",
+          "selector": ".user-type-toggle",
+          "description": "Toggle to switch between different user categories, currently focused on teachers."
+        },
+        {
+          "id": "active-users-toggle",
+          "title": "Active Users Filter",
+          "selector": ".active-users-toggle",
+          "description": "Switch between active users and former users."
+        },
+        {
+          "id": "search-bar",
+          "title": "Search and Filter Input",
+          "selector": ".filter-input",
+          "description": "Search field used to quickly find teachers by name, email, or other attributes."
+        },
+        {
+          "id": "teachers-table",
+          "title": "Teachers List Table",
+          "selector": ".teachers-table",
+          "description": "Main table displaying all teachers with their name, email, phone number, subjects, and assigned classes."
+        },
+        {
+          "id": "teacher-row-actions",
+          "title": "Teacher Row Actions",
+          "selector": ".teacher-actions",
+          "description": "Action buttons on each teacher row. Click the pencil icon to edit a teacher's details. Click the trash icon to delete a teacher from the system. A confirmation dialog will appear before deletion."
+        },
+        {
+          "id": "add-teacher-button",
+          "title": "Add Teacher Button",
+          "selector": ".btn-add-teacher",
+          "description": "Primary action button used to create a new teacher account."
+        },
+        {
+          "id": "bulk-actions",
+          "title": "Bulk Actions Controls",
+          "selector": ".bulk-actions",
+          "description": "Select multiple teachers using checkboxes, then use the bulk actions toolbar to deactivate or delete them in batch."
+        },
+        {
+          "id": "sidebar-navigation",
+          "title": "Sidebar Navigation",
+          "selector": ".sidebar",
+          "description": "Vertical navigation bar providing access to main platform sections like dashboard, calendar, and administration."
+        },
+        {
+          "id": "account-menu",
+          "title": "User Account Menu",
+          "selector": ".account-menu",
+          "description": "Top-right dropdown menu for accessing user profile and account settings."
+        }
+      ]
+    },
+    {
+      "id": "schoolyears",
+      "title": "School Years",
+      "description": "Go to Admin > School Years to set the current year, define dates, and manage holiday periods.",
+      "route": "/admin/schoolyears",
+      "sections": [
+        {
+          "id": "top-navigation",
+          "title": "Administration Navigation Tabs",
+          "selector": ".admin-tabs",
+          "description": "Main administration tabs used to switch between users, subjects, school years, settings, import/export, and activity logs."
+        },
+        {
+          "id": "current-schoolyear-selector",
+          "title": "Current School Year Selector",
+          "selector": ".current-schoolyear-selector",
+          "description": "Dropdown used to choose which school year is currently active."
+        },
+        {
+          "id": "current-schoolyear-save",
+          "title": "Current School Year Save Button",
+          "selector": ".save-current-schoolyear",
+          "description": "Button used to save the selected current school year."
+        },
+        {
+          "id": "schoolyears-tabs",
+          "title": "School Years Tabs",
+          "selector": ".schoolyears-tabs",
+          "description": "Tabs used to switch between existing school years or create a new one."
+        },
+        {
+          "id": "schoolyear-form",
+          "title": "School Year Details Form",
+          "selector": ".schoolyear-form",
+          "description": "Form used to edit the selected school year's name, start date, and end date."
+        },
+        {
+          "id": "schoolyear-dates",
+          "title": "School Year Dates",
+          "selector": ".schoolyear-dates",
+          "description": "Date fields defining the start and end of the selected school year."
+        },
+        {
+          "id": "schoolyear-save",
+          "title": "School Year Save Button",
+          "selector": ".save-schoolyear",
+          "description": "Button used to save changes made to the selected school year."
+        },
+        {
+          "id": "schoolyear-delete",
+          "title": "School Year Delete Button",
+          "selector": ".delete-schoolyear",
+          "description": "Control used to remove the selected school year."
+        },
+        {
+          "id": "holidays-section",
+          "title": "Holiday Periods Section",
+          "selector": ".holidays-section",
+          "description": "Section listing vacation and holiday periods linked to the selected school year."
+        },
+        {
+          "id": "holidays-table",
+          "title": "Holiday Dates Table",
+          "selector": ".holidays-table",
+          "description": "Editable table used to manage holiday names with their start and end dates."
+        },
+        {
+          "id": "holiday-delete-actions",
+          "title": "Holiday Delete Actions",
+          "selector": ".holiday-delete-actions",
+          "description": "Delete controls used to remove individual holiday entries."
+        },
+        {
+          "id": "sidebar-navigation",
+          "title": "Sidebar Navigation",
+          "selector": ".sidebar",
+          "description": "Vertical navigation bar providing access to main platform sections such as dashboard, calendar, and administration."
+        },
+        {
+          "id": "account-menu",
+          "title": "User Account Menu",
+          "selector": ".account-menu",
+          "description": "Top-right dropdown menu for accessing user profile and account settings."
+        }
+      ]
+    },
+    {
+      "id": "timetables",
+      "title": "Timetables",
+      "description": "Interface for creating, managing, and organizing class timetables and lesson planning structures.",
+      "route": "/timetables",
+      "image": "timetables.png",
+      "sections": [
+        {
+          "id": "header-title",
+          "title": "Timetable Management Header",
+          "selector": ".timetable-header",
+          "description": "Header indicating the timetable management section and current school year."
+        },
+        {
+          "id": "week-timeline",
+          "title": "Week Timeline Selector",
+          "selector": ".week-timeline",
+          "description": "Horizontal timeline used to navigate between weeks of the school year."
+        },
+        {
+          "id": "create-timetable-button",
+          "title": "Create Timetable Button",
+          "selector": ".btn-create-timetable",
+          "description": "Primary action button used to generate a new timetable."
+        },
+        {
+          "id": "timetable-distribution",
+          "title": "Timetable Distribution Button",
+          "selector": ".btn-timetable-distribution",
+          "description": "Button used to access the distribution view of timetables."
+        },
+        {
+          "id": "timetables-table",
+          "title": "Timetables List",
+          "selector": ".timetables-table",
+          "description": "Main table listing all timetables with their identifiers, creation dates, and last update timestamps."
+        },
+        {
+          "id": "timetable-row-actions",
+          "title": "Timetable Row Actions",
+          "selector": ".timetable-actions",
+          "description": "Actions available for each timetable such as viewing, reorganizing, editing, duplicating, or deleting."
+        },
+        {
+          "id": "timetable-identifiers",
+          "title": "Timetable Identifiers",
+          "selector": ".timetable-id",
+          "description": "Labels used to identify each timetable instance."
+        },
+        {
+          "id": "table-columns",
+          "title": "Timetable Metadata Columns",
+          "selector": ".table-columns",
+          "description": "Columns displaying creation date and last modification date for each timetable."
+        },
+        {
+          "id": "sidebar-navigation",
+          "title": "Sidebar Navigation",
+          "selector": ".sidebar",
+          "description": "Vertical navigation bar providing access to main platform sections such as dashboard, calendar, and administration."
+        },
+        {
+          "id": "account-menu",
+          "title": "User Account Menu",
+          "selector": ".account-menu",
+          "description": "Top-right dropdown menu for accessing user profile and account settings."
+        }
+      ]
+    }
+  ]
+}
